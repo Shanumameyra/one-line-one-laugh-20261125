@@ -10,6 +10,8 @@ LINE = "I went on a silent retreat and came back with strong opinions about ever
 
 
 def main() -> None:
+    if not 1 <= len(LINE) <= 140:
+        raise ValueError(f"line must be 1-140 characters, got {len(LINE)}")
     out_dir = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
     os.makedirs(out_dir, exist_ok=True)
     path = os.path.join(out_dir, "entry.txt")
